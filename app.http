@@ -1,0 +1,41 @@
+GET http://localhost:3000/movies
+
+###Buscar pelicula por id
+
+GET http://localhost:3000/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+###Buscar peliculas por genero
+
+GET http://localhost:3000/movies?genre=Drama
+
+###Crear nueva pelicula
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+    "title": "El despertar del JEDI",
+    "year": 2000,
+    "director": "George Lucas",
+    "duration": 142,
+    "poster": "https://i.ebayimg.com/images/g/4goAAOSwMyBe7hnQ/s-l1200.webp",
+    "genre": [
+        "Action",
+        "Ficcion",
+        "Adventure"
+    ]
+}
+
+### Modificar una pelicula
+
+PATCH http://localhost:3000/movies/2e6900e2-0b48-4fb6-ad48-09c7086e54fe
+Content-Type: application/json
+
+{
+    "year": 2030
+}
+
+
+### Eliminar pelicula
+
+DELETE http://localhost:3000/movies/:dcdd0fad-a94c-4810-8acc-5f108d3b18c3
