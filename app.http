@@ -32,10 +32,10 @@ PATCH http://localhost:3000/movies/2e6900e2-0b48-4fb6-ad48-09c7086e54fe
 Content-Type: application/json
 
 {
-    "year": 2030
+    "year": 2000
 }
 
 
 ### Eliminar pelicula
 
-DELETE http://localhost:3000/movies/:dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+DELETE http://localhost:3000/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0

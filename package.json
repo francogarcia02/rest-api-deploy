@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Clase 3 del curso de node de midu",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "dev": "node --watch ./app.js",
     "start": "node ./app.js",
