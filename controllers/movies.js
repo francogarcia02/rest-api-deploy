@@ -1,18 +1,22 @@
-import { MovieModel } from "../models/mysql/movie.js"
+
 import { validateMovie, validatePartialMovie } from '../schemas/movies.js'
 
 export class MovieController{
-    static async getAll (req, res) {
+    constructor({movieModel}) {
+        this.movieModel = movieModel
+    }
+
+    getAll = async (req, res) => {
     
         const { genre } = req.query
-        const moviesFiltered = await MovieModel.getAll({genre})
+        const moviesFiltered = await this.movieModel.getAll({genre})
     
         res.json(moviesFiltered)
     }
 
-    static async getById (req, res) {
+    getById = async (req, res) => {
         const { id } = req.params
-        const movie = await MovieModel.getById({id})
+        const movie = await this.movieModel.getById({id})
         if(movie){
             res.json(movie)
         }
@@ -24,17 +28,17 @@ export class MovieController{
         
     }
 
-    static async create (req, res) {
+    create = async (req, res) => {
         const result = validateMovie(req.body)
         if (result.error){
             return res.status(404).send(result.error)
         }
     
-        const newMovie = await MovieModel.create(result.data)
+        const newMovie = await this.movieModel.create(result.data)
         res.send(newMovie)
     }
 
-    static async delete (req, res) {
+    delete = async (req, res) => {
         const { id } = req.params
         const movieIndex = await MovieModel.delete({id})
         if(movieIndex){
@@ -44,7 +48,7 @@ export class MovieController{
     
     }
 
-    static async update (req, res) {
+    update = async (req, res) => {
         const { id } = req.params
         const result = validatePartialMovie(req.body)
     
@@ -52,7 +56,7 @@ export class MovieController{
             res.status(400).json({error: JSON.parse(result.error)})
         }
     
-        const update = await MovieModel.update({id: id, input: result.data})
+        const update = await this.movieModel.update({id: id, input: result.data})
         res.status(200).json(update)
     }
 }
