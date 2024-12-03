@@ -2,7 +2,7 @@ GET http://localhost:3000/movies
 
 ###Buscar pelicula por id
 
-GET http://localhost:3000/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+GET http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
 
 ###Buscar peliculas por genero
 
@@ -28,14 +28,14 @@ Content-Type: application/json
 
 ### Modificar una pelicula
 
-PATCH http://localhost:3000/movies/2e6900e2-0b48-4fb6-ad48-09c7086e54fe
+PATCH http://localhost:3000/movies/887ecd60-b0f2-11ef-a3ea-0a0027000004
 Content-Type: application/json
 
 {
-    "year": 2000
+    "year": 1901
 }
 
 
 ### Eliminar pelicula
 
-DELETE http://localhost:3000/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
+DELETE http://localhost:3000/movies/891e00d6-b0f2-11ef-a3ea-0a0027000004
